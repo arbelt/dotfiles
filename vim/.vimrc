@@ -35,7 +35,7 @@ if dein#load_state(expand('~/.vim/dein'))
     call dein#add('terryma/vim-multiple-cursors')
     call dein#add('haya14busa/incsearch.vim')
 
-    call dein#add('Valloric/YouCompleteMe', {'build': './install.py'})
+    call dein#add('Valloric/YouCompleteMe', {'build': './install.py', 'if': !dein#tap('denite')})
 
     call dein#add('lifepillar/vim-solarized8')
     call dein#add('rakr/vim-one')
