@@ -107,8 +107,15 @@ if has('mouse')
 end
 
 " True color if available
-if has('termguicolors')
-    set termguicolors
+if has('termguicolors') && !$DISABLE_TRUECOLOR
+    if executable('is_mosh')
+        silent !is_mosh
+        if v:shell_error
+            set termguicolors
+        end
+    else
+        set termguicolors
+    end
 end
 
 set tabstop=4           " 4 spaces for tab
