@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 
+use v5.18;
+
 sub has_mosh_ancestor {
     chomp(my @pidlist=@_);
     foreach (@pidlist) {
