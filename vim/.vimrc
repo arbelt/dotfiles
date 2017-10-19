@@ -63,6 +63,7 @@ if dein#load_state(expand('~/.vim/dein'))
     call dein#add('elzr/vim-json')
     call dein#add('Chiel92/vim-autoformat')
     call dein#add('stephpy/vim-yaml')
+    call dein#add('saltstack/salt-vim')
 
     "}}}
 
