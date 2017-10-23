@@ -110,16 +110,28 @@ if has('mouse')
     set mouse=a
 end
 
-" True color if available
-if has('termguicolors') && !$DISABLE_TRUECOLOR
-    if executable('is_mosh')
+silent function! CheckTrueColor()
+    if has('gui') || has('gui_vimr')
+        return 1
+    elseif !has('nvim')
+        return 0
+    elseif has('mac') " Is running locally
+        return 1
+    elseif executable('is_mosh')
         silent !is_mosh
         if v:shell_error
-            set termguicolors
+            return 1
+        else
+            return 0
         end
     else
-        set termguicolors
+        return 0
     end
+endfunction
+
+" True color if available
+if has('termguicolors') && CheckTrueColor()
+    set termguicolors
 end
 
 set tabstop=4           " 4 spaces for tab
