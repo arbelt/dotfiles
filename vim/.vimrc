@@ -51,6 +51,7 @@ if dein#load_state(expand('~/.vim/dein'))
 
     "{{{ Language support
     "call dein#add('aliva/vim-fish', {'on_ft': 'fish'})
+    call dein#add('fatih/vim-go')
     call dein#add('arbelt/vim-fish', {'on_ft': 'fish'})
     call dein#add('cespare/vim-toml', {'on_ft': 'toml'})
 
