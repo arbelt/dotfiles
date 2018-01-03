@@ -19,3 +19,13 @@ if type rbenv &>/dev/null; then
         rbenv $@
     }
 fi
+
+if command -v nodenv >/dev/null; then
+    local nodenv_shims="${NODENV_ROOT:-${HOME}/.nodenv}/shims"
+    export path=("${nodenv_shims}" $path)
+    function nodenv() {
+        unset nodenv
+        eval "$(command nodenv init - --no-rehash)"
+        nodenv $@
+    }
+fi

@@ -11,6 +11,16 @@ done
 
 command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell zsh)"
 
-source "${HOME}/.fzf.zsh" 2>/dev/null || true
+local has_fd=$(command -v fd)
+
+if command -v fzf >/dev/null; then
+    source "${HOME}/.fzf.zsh" 2>/dev/null || true
+    if [[ -n "${has_fd}" ]]; then
+        export FZF_DEFAULT_COMMAND='fd --type f'
+        export FZF_ALT_C_COMMAND='fd --type d'
+    fi
+fi
 
 source "${HOME}/.zshrc.local" 2>/dev/null || true
+
+command -v fasd >/dev/null && eval "$(fasd --init auto)"

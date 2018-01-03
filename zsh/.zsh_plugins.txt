@@ -1,7 +1,10 @@
 # these should be last
 mafredri/zsh-async
 sindresorhus/pure 
+# dracula/zsh
+# robbyrussell/oh-my-zsh folder:lib
 # denysdovhan/spaceship-zsh-theme
+# geometry-zsh/geometry
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-history-substring-search
 
