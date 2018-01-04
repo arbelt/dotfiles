@@ -29,3 +29,6 @@ if command -v nodenv >/dev/null; then
         nodenv $@
     }
 fi
+
+# ensure that ~/.local/bin comes before shims in path
+export path=(~/.local/bin $path)
