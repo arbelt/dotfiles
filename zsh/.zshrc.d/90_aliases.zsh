@@ -9,3 +9,5 @@ fi
 alias l='ls -l'
 alias la='ls -a'
 
+alias gcm='git commit -m'
+alias gdc='git diff --cached'

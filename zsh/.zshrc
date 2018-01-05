@@ -27,3 +27,27 @@ fi
 source "${HOME}/.zshrc.local" 2>/dev/null || true
 
 command -v fasd >/dev/null && eval "$(fasd --init auto)"
+
+typeset -ag abbreviations
+
+abbreviations=(
+    "ga"
+    "gcm"
+    "gco"
+    "gdc"
+)
+
+globalias() {
+    if [[ -n "${abbreviations[(r)${LBUFFER}]}" ]]; then
+        zle _expand_alias
+    fi
+    zle expand-word
+    zle self-insert
+}
+
+zle -N globalias
+
+bindkey -M emacs " " globalias
+bindkey -M viins " " globalias
+
+bindkey -M isearch " " magic-space

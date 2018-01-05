@@ -1,3 +1,7 @@
+# robbyrussell/oh-my-zsh folder:plugins/globalias
+
+# momo-lab/zsh-abbrev-alias
+#
 # these should be last
 mafredri/zsh-async
 sindresorhus/pure 
