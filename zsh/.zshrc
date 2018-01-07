@@ -8,6 +8,16 @@ if command -v antibody >/dev/null; then
     antibody bundle < ~/.zsh_plugins.txt
 fi
 
+typeset -a plugins
+
+plugins=(pyenv)
+
+local _zshdir="${${(%):-%N}:A:h}"
+
+for p in ${plugins}; do
+    antibody bundle arbelt/dotfiles folder:zsh/plugins/"${p}"
+done
+
 for f in "${HOME}/.zshrc.d/"*.zsh; do
     source "$f"
 done
