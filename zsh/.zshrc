@@ -14,8 +14,19 @@ plugins=(pyenv)
 
 local _zshdir="${${(%):-%N}:A:h}"
 
+_load_plugin() {
+    local plugindir="${_zshdir}/plugins/$1"
+    if [[ ! -d "${plugindir}" ]]; then
+        return 1
+    fi
+    for f in ${plugindir}/*.plugin.zsh; do
+        source "${f}"
+    done
+}
+
 for p in ${plugins}; do
-    antibody bundle arbelt/dotfiles folder:zsh/plugins/"${p}"
+    #antibody bundle arbelt/dotfiles folder:zsh/plugins/"${p}"
+    _load_plugin "${p}"
 done
 
 for f in "${HOME}/.zshrc.d/"*.zsh; do
@@ -59,5 +70,8 @@ zle -N globalias
 
 bindkey -M emacs " " globalias
 bindkey -M viins " " globalias
+
+bindkey -M emacs "^ " magic-space
+bindkey -M viins "^ " magic-space
 
 bindkey -M isearch " " magic-space
