@@ -24,3 +24,14 @@ alias gfa='git fetch --all --prune'
 
 alias glo='git log --oneline --decorate --color'
 alias glog='git log --oneline --decorate --color --graph'
+
+alias gst='git status'
+alias gsb='git status -sb'
+
+abbreviations+=(
+    gau
+    gst
+    gsb
+    gd
+    glo
+)
