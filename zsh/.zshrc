@@ -10,24 +10,18 @@ fi
 
 typeset -a plugins
 
-plugins=(pyenv)
+plugins=(
+    pyenv
+    abbrev
+)
 
-local _zshdir="${${(%):-%N}:A:h}"
-
-_load_plugin() {
-    local plugindir="${_zshdir}/plugins/$1"
-    if [[ ! -d "${plugindir}" ]]; then
-        return 1
-    fi
-    for f in ${plugindir}/*.plugin.zsh; do
-        source "${f}"
-    done
-}
-
-for p in ${plugins}; do
-    #antibody bundle arbelt/dotfiles folder:zsh/plugins/"${p}"
-    _load_plugin "${p}"
-done
+abbreviations=(
+    "ga"
+    "gcm"
+    "gco"
+    "gdc"
+    "gfa"
+)
 
 for f in "${HOME}/.zshrc.d/"*.zsh; do
     source "$f"
@@ -48,30 +42,3 @@ fi
 source "${HOME}/.zshrc.local" 2>/dev/null || true
 
 command -v fasd >/dev/null && eval "$(fasd --init auto)"
-
-typeset -ag abbreviations
-
-abbreviations=(
-    "ga"
-    "gcm"
-    "gco"
-    "gdc"
-)
-
-globalias() {
-    if [[ -n "${abbreviations[(r)${LBUFFER}]}" ]]; then
-        zle _expand_alias
-    fi
-    zle expand-word
-    zle self-insert
-}
-
-zle -N globalias
-
-bindkey -M emacs " " globalias
-bindkey -M viins " " globalias
-
-bindkey -M emacs "^ " magic-space
-bindkey -M viins "^ " magic-space
-
-bindkey -M isearch " " magic-space

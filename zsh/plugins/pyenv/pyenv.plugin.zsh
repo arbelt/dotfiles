@@ -1,6 +1,7 @@
 if type pyenv &>/dev/null; then
     local pyenv_shims="${PYENV_ROOT:-${HOME}/.pyenv}/shims"
     export path=("${pyenv_shims}" $path)
+    typeset -gf pyenv
     function pyenv() {
         unset pyenv
         eval "$(command pyenv init - --no-rehash)"
