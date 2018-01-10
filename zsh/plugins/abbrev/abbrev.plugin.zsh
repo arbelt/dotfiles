@@ -7,7 +7,7 @@ globalias() {
     if [[ -n "${abbreviations[(r)${last_word}]}" ]]; then
         zle _expand_alias
     fi
-    zle expand-word
+    #zle expand-word
     zle self-insert
 }
 
