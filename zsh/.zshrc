@@ -13,6 +13,7 @@ typeset -a plugins
 plugins=(
     pyenv
     abbrev
+    vg-auto-deactivate
 )
 
 abbreviations=(
