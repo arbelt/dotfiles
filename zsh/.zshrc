@@ -13,7 +13,7 @@ typeset -a plugins
 plugins=(
     pyenv
     abbrev
-    vg-auto-deactivate
+    virtualgo
 )
 
 abbreviations=(
@@ -27,8 +27,6 @@ abbreviations=(
 for f in "${HOME}/.zshrc.d/"*.zsh; do
     source "$f"
 done
-
-command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell zsh)"
 
 local has_fd=$(command -v fd)
 
