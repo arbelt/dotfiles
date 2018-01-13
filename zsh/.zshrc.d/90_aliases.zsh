@@ -35,3 +35,5 @@ abbreviations+=(
     gd
     glo
 )
+
+alias dh='dirs -v'

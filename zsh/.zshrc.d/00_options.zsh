@@ -18,3 +18,8 @@ autoload -Uz promptinit && promptinit
 setopt null_glob
 setopt unset
 
+DIRSTACKSIZE=20
+setopt auto_pushd
+setopt pushd_minus
+setopt pushd_ignore_dups
+
