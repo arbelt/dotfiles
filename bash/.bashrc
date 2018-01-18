@@ -126,4 +126,4 @@ fi
 
 command -v vg >/dev/null 2>&1 && eval "$(vg eval --shell bash)"
 
-source ~/.bashrc.local || true
+source ~/.bashrc.local 2>/dev/null || true
