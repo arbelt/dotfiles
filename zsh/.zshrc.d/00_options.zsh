@@ -23,3 +23,6 @@ setopt auto_pushd
 setopt pushd_minus
 setopt pushd_ignore_dups
 
+setopt interactive_comments
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[comment]='fg=008'
