@@ -2,6 +2,11 @@ if type pyenv &>/dev/null; then
     local pyenv_shims="${PYENV_ROOT:-${HOME}/.pyenv}/shims"
     export path=("${pyenv_shims}" $path)
     typeset -gf pyenv
+    local pyenv_path="$(whence -p pyenv)"
+    if [[ $pyenv_path = /usr/local/bin/pyenv ]]; then
+        local completions="/usr/local/share/zsh/site-functions/pyenv.zsh"
+        [[ -s $completions ]] && source "${completions}"
+    fi
     function pyenv() {
         unset pyenv
         eval "$(command pyenv init - --no-rehash)"

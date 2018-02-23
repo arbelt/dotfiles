@@ -5,6 +5,7 @@
 # these should be last
 mafredri/zsh-async
 sindresorhus/pure 
+# geometry-zsh/geometry
 # dracula/zsh
 # robbyrussell/oh-my-zsh folder:lib
 # denysdovhan/spaceship-zsh-theme

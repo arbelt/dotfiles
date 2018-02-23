@@ -3,6 +3,8 @@ select-word-style bash
 
 bindkey -e
 
+#autoload -U compinit && compinit
+
 if command -v antibody >/dev/null; then
     source <(antibody init)
     antibody bundle < ~/.zsh_plugins.txt
@@ -14,6 +16,7 @@ plugins=(
     pyenv
     abbrev
     virtualgo
+    git
 )
 
 abbreviations=(
