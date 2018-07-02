@@ -37,3 +37,5 @@ abbreviations+=(
 )
 
 alias dh='dirs -v'
+
+alias R='R --no-save'

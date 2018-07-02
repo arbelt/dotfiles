@@ -38,3 +38,7 @@ fi
 
 # ensure that ~/.local/bin comes before shims in path
 export path=(~/.local/bin $path)
+
+if [[ -s "${HOME}/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh" ]]; then
+    source "${HOME}/.pyenv/versions/miniconda3-latest/etc/profile.d/conda.sh"
+fi
