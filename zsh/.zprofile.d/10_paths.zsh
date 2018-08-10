@@ -7,12 +7,14 @@ fi
 
 typeset -gU cdpath fpath mailpath path
 
-export GOPATH="${HOME}/go"
+#export GOPATH="${HOME}/go"
 
 path=(
     "${HOME}/.local/bin"
     "${HOME}/.cargo/bin"
-    "${GOPATH}/bin"
+    #"${GOPATH}/bin"
+    /usr/local/go/bin
+    /usr/local/opt/python/libexec/bin
     /usr/local/{bin,sbin}
     $path
 )
